@@ -1,0 +1,21 @@
+#!/bin/bash
+# href: https://docs.docker.com/docker-cloud/builds/advanced/
+
+echo "### Listing remote branches:"
+git for-each-ref --format "%(refname:strip=3)" refs/remotes/origin/
+
+# TODO: Ensure all special branches (here, master) are mentioned below
+latest=$(git for-each-ref --format "%(refname:strip=3)" refs/remotes/origin/ \
+  | grep -v -e '^HEAD$' -e '^master$' \
+  | cut -d '-' -f 1 | sort -V -u | tail -n1)
+
+echo "### Latest stable release is: $latest"
+
+if [[ "$SOURCE_BRANCH" =~ ^${latest//./\\.}-coq-.*$ ]]; then
+    coq=${SOURCE_BRANCH##*coq-}
+    echo "### Do additional docker push ($DOCKER_REPO:latest-coq-$coq)"
+    docker tag "$IMAGE_NAME" "$DOCKER_REPO:latest-coq-$coq"
+    docker push "$DOCKER_REPO:latest-coq-$coq"
+else
+    echo "### no additional docker push"
+fi
