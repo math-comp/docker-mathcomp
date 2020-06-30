@@ -44,3 +44,6 @@ flycheck_*.el
 
 # directory configuration
 .dir-locals.el
+
+### docker-keeper ###
+/generated/
