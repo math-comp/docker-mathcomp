@@ -17,7 +17,7 @@ RUN set -x \
   && opam pin add -n -k version coq-mathcomp-solvable ${MATHCOMP_VERSION} \
   && opam pin add -n -k version coq-mathcomp-field ${MATHCOMP_VERSION} \
   && opam pin add -n -k version coq-mathcomp-character ${MATHCOMP_VERSION} \
-  && opam install -y -j ${NJOBS} ${MATHCOMP_PACKAGE} \
+  && opam install -y -j "${NJOBS}" ${MATHCOMP_PACKAGE} \
   && opam clean -a -c -s --logs \
   && opam config list && opam list
 
@@ -31,7 +31,7 @@ RUN set -x \
   && opam pin add -n -k version coq-mathcomp-solvable ${MATHCOMP_VERSION} \
   && opam pin add -n -k version coq-mathcomp-field ${MATHCOMP_VERSION} \
   && opam pin add -n -k version coq-mathcomp-character ${MATHCOMP_VERSION} \
-  && opam install -y -j ${NJOBS} ${MATHCOMP_PACKAGE} \
+  && opam install -y -j "${NJOBS}" ${MATHCOMP_PACKAGE} \
   && opam clean -a -c -s --logs \
   && opam config list && opam list
 
