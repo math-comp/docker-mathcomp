@@ -464,7 +464,8 @@ def write_readme(base_url, build_data):
     with open('README.md', 'r') as f:
         template = f.read()
 
-    tags = ('# Supported tags and respective `Dockerfile` links\n\n%s'
+    tags = ('# <a name="supported-tags"></a>'
+            'Supported tags and respective `Dockerfile` links\n\n%s'
             % '\n'.join(map(readme_image, build_data)))
 
     readme = template.replace(pattern, tags)
