@@ -1,7 +1,6 @@
 # mathcomp/mathcomp
 
-[![automated](https://img.shields.io/docker/automated/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp "Automated build on Docker Hub")
-[![build](https://img.shields.io/docker/build/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp/builds "Automated build on Docker Hub")
+[![pipeline status](https://gitlab.com/math-comp/docker-mathcomp/badges/master/pipeline.svg)](https://gitlab.com/math-comp/docker-mathcomp/-/commits/master)
 [![pulls](https://img.shields.io/docker/pulls/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp "Number of pulls from Docker Hub")
 [![stars](https://img.shields.io/docker/stars/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp "Star the image on Docker Hub")  
 [![dockerfile](https://img.shields.io/badge/dockerfile%20on-github-blue.svg)](https://github.com/math-comp/docker-mathcomp "Dockerfile source repository")
@@ -13,6 +12,8 @@ This repository provides [Docker](https://www.docker.com/) images of (stable ver
 These images are based on the [coqorg/coq](https://hub.docker.com/r/coqorg/coq/) images, itself based on [Debian 10 Slim](https://hub.docker.com/_/debian/) and relying on [opam 2.0](https://opam.ocaml.org/doc/Manual.html).
 
 See also the [docker-coq wiki](https://github.com/coq-community/docker-coq/wiki) for details about how to use such images locally or in a CI context.
+
+<!-- tags -->
 
 ### Note to maintainers
 
