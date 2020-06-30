@@ -1,0 +1,87 @@
+---
+base_url: 'https://gitlab.com/math-comp/docker-mathcomp'
+active: true
+args:
+  COQ_TAG: '{matrix[coq]}'
+  MATHCOMP_VERSION: '{matrix[mathcomp]}'
+docker_repo: 'mathcomp/mathcomp'
+images:
+  # to uncomment for next beta
+  # - matrix:
+  #     coq: ['dev']
+  #     mathcomp: ['1.12+beta1']
+  #   build:
+  #     nightly: true
+  #     context: './mathcomp'
+  #     dockerfile: './dual/Dockerfile'
+  #     tags:
+  #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
+  # - matrix:
+  #     coq: ['8.12', '8.11', '8.10', '8.9', '8.8', '8.7']
+  #     mathcomp: ['1.12+beta1']
+  #   build:
+  #     context: './mathcomp'
+  #     dockerfile: './dual/Dockerfile'
+  #     tags:
+  #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
+  - matrix:
+      coq: ['dev']
+      mathcomp: ['1.11.0']
+    build:
+      nightly: true
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+        # to remove on next release
+        - tag: 'latest-coq-{matrix[coq]}'
+  - matrix:
+      coq: ['8.12', '8.11', '8.10', '8.9', '8.8', '8.7']
+      mathcomp: ['1.11.0']
+    build:
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+        # to remove on next release
+        - tag: 'latest-coq-{matrix[coq]}'
+  - matrix:
+      coq: ['8.11', '8.10', '8.9', '8.8', '8.7']
+      mathcomp: ['1.10.0']
+    build:
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+  - matrix:
+      coq: ['8.11', '8.10', '8.9', '8.8', '8.7']
+      mathcomp: ['1.9.0']
+    build:
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+  - matrix:
+      coq: ['8.9', '8.8', '8.7']
+      mathcomp: ['1.8.0']
+    build:
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+  - matrix:
+      coq: ['8.9', '8.8', '8.7']
+      mathcomp: ['1.7.0']
+    build:
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+  - matrix:
+      coq: ['8.6']
+      mathcomp: ['1.7.0']
+    build:
+      context: './mathcomp'
+      dockerfile: './single/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
