@@ -265,7 +265,9 @@ def get_list_dict_dockerfile_matrix_tags_args(json):
         context = check_trim_relative_path(item['build']['context'])
         path = '%s/%s' % (context, dfile)
         raw_tags = item['build']['tags']
-        raw_args = merge_dict(json['args'], item['build']['args'])
+        args1 = json['args'] if 'args' in json else {}
+        args2 = item['build']['args'] if 'args' in item['build'] else {}
+        raw_args = merge_dict(args1, args2)
         for matrix in list_matrix:
             tags = []
             for tag_item in raw_tags:
