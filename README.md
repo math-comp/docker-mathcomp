@@ -1,7 +1,7 @@
 # mathcomp/mathcomp
 
 [![tags](https://img.shields.io/badge/tags%20on-docker%20hub-blue.svg)](https://hub.docker.com/r/mathcomp/mathcomp#supported-tags "Supported tags on Docker Hub")
-[![pipeline status](https://gitlab.com/math-comp/docker-mathcomp/badges/master/pipeline.svg)](https://gitlab.com/math-comp/docker-mathcomp/-/commits/master)
+[![pipeline status](https://gitlab.com/math-comp/docker-mathcomp/badges/master/pipeline.svg)](https://gitlab.com/math-comp/docker-mathcomp/-/pipelines)
 [![layers](https://images.microbadger.com/badges/image/mathcomp/mathcomp.svg)](https://microbadger.com/images/mathcomp/mathcomp "View image on microbadger.com")
 [![pulls](https://img.shields.io/docker/pulls/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp "Number of pulls from Docker Hub")
 [![stars](https://img.shields.io/docker/stars/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp "Star the image on Docker Hub")  
