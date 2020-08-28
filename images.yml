@@ -25,17 +25,6 @@ images:
   #     tags:
   #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
   - matrix:
-      coq: ['dev']
-      mathcomp: ['1.11.0']
-    build:
-      nightly: true
-      context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
-      tags:
-        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
-        # to remove on next release
-        - tag: 'latest-coq-{matrix[coq]}'
-  - matrix:
       coq: ['8.12', '8.11', '8.10', '8.9', '8.8', '8.7']
       mathcomp: ['1.11.0']
     build:
