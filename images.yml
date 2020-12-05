@@ -25,7 +25,7 @@ images:
   #     tags:
   #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
   - matrix:
-      coq: ['8.12', '8.11', '8.10']
+      coq: ['8.13', '8.12', '8.11', '8.10']
       mathcomp: ['1.12.0']
     build:
       context: './mathcomp'
