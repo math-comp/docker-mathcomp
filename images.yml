@@ -6,24 +6,58 @@ args:
   MATHCOMP_VERSION: '{matrix[mathcomp]}'
 docker_repo: 'mathcomp/mathcomp'
 images:
-  # to uncomment for next beta
+  # TODO: Copy and Uncomment for next mathcomp beta (or stable release)
   # - matrix:
   #     coq: ['dev']
-  #     mathcomp: ['1.12+beta1']
+  #     mathcomp: ['1.13+beta1']
   #   build:
-  #     nightly: true
+  #     # keyword for docker-keeper's trigger (from docker-coq CI)
+  #     keywords: ['dev']
   #     context: './mathcomp'
   #     dockerfile: './dual/Dockerfile'
   #     tags:
   #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
+  #       # TODO: Uncomment at release time
+  #       # - tag: 'latest-coq-{matrix[coq]}'
   # - matrix:
-  #     coq: ['8.12', '8.11', '8.10', '8.9', '8.8', '8.7']
-  #     mathcomp: ['1.12+beta1']
+  #     coq: ['8.13', '8.12', '8.11', '8.10']
+  #     mathcomp: ['1.13+beta1']
   #   build:
   #     context: './mathcomp'
   #     dockerfile: './dual/Dockerfile'
   #     tags:
   #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
+  #       # TODO: Uncomment at release time
+  #       # - tag: 'latest-coq-{matrix[coq]}'
+
+  # TODO: Copy and Uncomment when coqorg/coq:8.14-alpha is published
+  # - matrix:
+  #     coq: ['8.14']
+  #     mathcomp: ['1.12.0']
+  #   build:
+  #     # keyword for docker-keeper's trigger (from docker-coq CI)
+  #     keywords:
+  #       - '8.14'
+  #     context: './mathcomp'
+  #     dockerfile: './dual/Dockerfile'
+  #     tags:
+  #       - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+  #       # TODO: Remove on next release
+  #       - tag: 'latest-coq-{matrix[coq]}'
+
+  # TODO: Remove when 1.12.0 does not compile anymore with coq.dev
+  - matrix:
+      coq: ['dev']
+      mathcomp: ['1.12.0']
+    build:
+      keywords:
+        - 'dev'
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+        # TODO: Remove on next release
+        - tag: 'latest-coq-{matrix[coq]}'
   - matrix:
       coq: ['8.13', '8.12', '8.11', '8.10']
       mathcomp: ['1.12.0']
@@ -32,8 +66,9 @@ images:
       dockerfile: './dual/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
-        # to remove on next release
+        # TODO: Remove on next release
         - tag: 'latest-coq-{matrix[coq]}'
+
   - matrix:
       coq: ['8.12', '8.11', '8.10', '8.9', '8.8', '8.7']
       mathcomp: ['1.11.0']
