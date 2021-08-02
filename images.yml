@@ -45,19 +45,6 @@ images:
   #       # TODO: Remove on next release
   #       - tag: 'latest-coq-{matrix[coq]}'
 
-  # TODO: Remove when 1.12.0 does not compile anymore with coq.dev
-  - matrix:
-      coq: ['dev']
-      mathcomp: ['1.12.0']
-    build:
-      keywords:
-        - 'dev'
-      context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
-      tags:
-        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
-        # TODO: Remove on next release
-        - tag: 'latest-coq-{matrix[coq]}'
   - matrix:
       coq: ['8.13', '8.12', '8.11', '8.10']
       mathcomp: ['1.12.0']
