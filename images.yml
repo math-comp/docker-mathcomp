@@ -18,6 +18,7 @@ images:
   #     tags:
   #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
   #       # TODO: Uncomment at release time
+  #       # TODO: Remove on next release
   #       # - tag: 'latest-coq-{matrix[coq]}'
   # - matrix:
   #     coq: ['8.13', '8.12', '8.11', '8.10']
@@ -28,6 +29,7 @@ images:
   #     tags:
   #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
   #       # TODO: Uncomment at release time
+  #       # TODO: Remove on next release
   #       # - tag: 'latest-coq-{matrix[coq]}'
 
   # TODO: Copy and Uncomment when coqorg/coq:8.15-alpha is published
@@ -55,17 +57,21 @@ images:
       dockerfile: './dual/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
-        # TODO: Uncomment at release time
+        # TODO: Remove on next release
         - tag: 'latest-coq-{matrix[coq]}'
 
   - matrix:
       coq: ['8.14', '8.13', '8.12', '8.11']
       mathcomp: ['1.13.0']
     build:
+      keywords:
+        - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './dual/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
+        # TODO: Remove on next release
+        - tag: 'latest-coq-{matrix[coq]}'
 
   - matrix:
       coq: ['8.14', '8.13', '8.12', '8.11', '8.10']
@@ -77,8 +83,6 @@ images:
       dockerfile: './dual/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
-        # TODO: Remove on next release
-        - tag: 'latest-coq-{matrix[coq]}'
 
   - matrix:
       coq: ['8.12', '8.11', '8.10', '8.9', '8.8', '8.7']
