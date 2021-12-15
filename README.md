@@ -14,6 +14,8 @@ These images are based on the [coqorg/coq](https://hub.docker.com/r/coqorg/coq/)
 
 See also the [docker-coq wiki](https://github.com/coq-community/docker-coq/wiki) for details about how to use such images locally or in a CI context.
 
+This Dockerfile repository is [mirrored on GitLab](https://gitlab.com/math-comp/docker-mathcomp), but [issues](https://github.com/math-comp/docker-mathcomp/issues) and [pull requests](https://github.com/math-comp/docker-mathcomp/pulls) are tracked on GitHub.
+
 <!-- tags -->
 
 ### Note to maintainers
