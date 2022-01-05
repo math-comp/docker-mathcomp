@@ -61,7 +61,7 @@ images:
         - tag: 'latest-coq-{matrix[coq]}'
 
   - matrix:
-      coq: ['8.14', '8.13', '8.12', '8.11']
+      coq: ['8.15', '8.14', '8.13', '8.12', '8.11']
       mathcomp: ['1.13.0']
     build:
       keywords:
