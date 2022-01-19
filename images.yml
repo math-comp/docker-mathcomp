@@ -9,7 +9,7 @@ images:
   # TODO: Copy and Uncomment at next mathcomp (beta or stable) release
   # - matrix:
   #     coq: ['dev', '8.15', '8.14', '8.13', '8.12', '8.11', '8.10']
-  #     mathcomp: ['1.14+beta1']
+  #     mathcomp: ['1.15+beta1']
   #   build:
   #     # keyword for docker-keeper's trigger (from docker-coq CI)
   #     keywords:
@@ -24,7 +24,7 @@ images:
 
   - matrix:
       coq: ['dev', '8.15', '8.14', '8.13', '8.12', '8.11']
-      mathcomp: ['1.13.0']
+      mathcomp: ['1.14.0']
     build:
       # keyword for docker-keeper's trigger (from docker-coq CI)
       keywords:
@@ -35,6 +35,18 @@ images:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
         # TODO: Remove on next release
         - tag: 'latest-coq-{matrix[coq]}'
+
+  - matrix:
+      coq: ['8.15', '8.14', '8.13', '8.12', '8.11']
+      mathcomp: ['1.13.0']
+    build:
+      # keyword for docker-keeper's trigger (from docker-coq CI)
+      keywords:
+        - '{matrix[coq]}'
+      context: './mathcomp'
+      dockerfile: './dual/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
   - matrix:
       coq: ['8.14', '8.13', '8.12', '8.11', '8.10']
