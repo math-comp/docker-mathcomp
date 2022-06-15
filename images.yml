@@ -15,7 +15,7 @@ images:
   #     keywords:
   #       - '{matrix[coq]}'
   #     context: './mathcomp'
-  #     dockerfile: './dual/Dockerfile'
+  #     dockerfile: './single/Dockerfile'
   #     tags:
   #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
   #       # TODO at release time: Uncomment "latest-coq-*" and Remove "[//+/-]"
@@ -30,7 +30,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
         # TODO: Remove on next release
@@ -44,7 +44,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -55,7 +55,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -66,7 +66,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -76,7 +76,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -86,7 +86,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -96,7 +96,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -106,7 +106,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './dual/Dockerfile'
+      dockerfile: './single/Dockerfile'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
