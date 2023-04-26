@@ -1,7 +1,7 @@
 # mathcomp/mathcomp
 
 [![tags](https://img.shields.io/badge/tags%20on-docker%20hub-blue.svg)](https://hub.docker.com/r/mathcomp/mathcomp#supported-tags "Supported tags on Docker Hub")
-[![pipeline status](https://gitlab.com/math-comp/docker-mathcomp/badges/master/pipeline.svg)](https://gitlab.com/math-comp/docker-mathcomp/-/pipelines)
+[![pipeline status](https://gitlab.inria.fr/math-comp/docker-mathcomp/badges/master/pipeline.svg)](https://gitlab.inria.fr/math-comp/docker-mathcomp/-/pipelines)
 [![pulls](https://img.shields.io/docker/pulls/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp "Number of pulls from Docker Hub")
 [![stars](https://img.shields.io/docker/stars/mathcomp/mathcomp.svg)](https://hub.docker.com/r/mathcomp/mathcomp "Star the image on Docker Hub")  
 [![dockerfile](https://img.shields.io/badge/dockerfile%20on-github-blue.svg)](https://github.com/math-comp/docker-mathcomp "Dockerfile source repository")
@@ -14,7 +14,7 @@ These images are based on the [coqorg/coq](https://hub.docker.com/r/coqorg/coq/)
 
 See also the [docker-coq wiki](https://github.com/coq-community/docker-coq/wiki) for details about how to use such images locally or in a CI context.
 
-This Dockerfile repository is [mirrored on GitLab](https://gitlab.com/math-comp/docker-mathcomp), but [issues](https://github.com/math-comp/docker-mathcomp/issues) and [pull requests](https://github.com/math-comp/docker-mathcomp/pulls) are tracked on GitHub.
+This Dockerfile repository is [mirrored on GitLab](https://gitlab.inria.fr/math-comp/docker-mathcomp), but [issues](https://github.com/math-comp/docker-mathcomp/issues) and [pull requests](https://github.com/math-comp/docker-mathcomp/pulls) are tracked on GitHub.
 
 <!-- tags -->
 
