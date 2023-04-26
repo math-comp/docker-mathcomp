@@ -1,3 +1,7 @@
+default:
+  tags:
+    - 'small'
+
 include: 'external/docker-keeper/gitlab-ci-template.yml'
 
 # Uncomment if ever you chose a different subtree prefix
