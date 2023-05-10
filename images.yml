@@ -25,8 +25,8 @@ images:
   #       # - tag: 'latest-coq-{matrix[coq]}'
 
   - matrix:
-      coq: ['8.17', '8.16', '8.15']
-      mathcomp: ['1.17.0']
+      coq: ['8.17', '8.16']
+      mathcomp: ['2.0.0']
     build:
       # keyword for docker-keeper's trigger (from docker-coq CI)
       keywords:
@@ -37,6 +37,18 @@ images:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
         # TODO after next release: Remove "latest-coq-*"
         - tag: 'latest-coq-{matrix[coq]}'
+
+  - matrix:
+      coq: ['8.17', '8.16', '8.15']
+      mathcomp: ['1.17.0']
+    build:
+      # keyword for docker-keeper's trigger (from docker-coq CI)
+      keywords:
+        - '{matrix[coq]}'
+      context: './mathcomp'
+      dockerfile: './single/Dockerfile'
+      tags:
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
   - matrix:
       coq: ['8.17', '8.16', '8.15', '8.14', '8.13']
