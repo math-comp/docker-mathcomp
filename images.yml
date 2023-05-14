@@ -2,7 +2,7 @@
 base_url: 'https://gitlab.com/math-comp/docker-mathcomp'
 active: true
 gitlab_ci_tags:
-  - 'medium'
+  - 'large'
 args:
   COQ_TAG: '{matrix[coq]}'
   MATHCOMP_VERSION: '{matrix[mathcomp]}'
