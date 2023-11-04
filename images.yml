@@ -25,7 +25,7 @@ images:
   #       # - tag: 'latest-coq-{matrix[coq]}'
 
   - matrix:
-      coq: ['dev', '8.18', '8.17', '8.16']
+      coq: ['8.18', '8.17', '8.16']
       mathcomp: ['2.1.0']
     build:
       # keyword for docker-keeper's trigger (from docker-coq CI)
@@ -51,7 +51,7 @@ images:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
   - matrix:
-      coq: ['dev', '8.18', '8.17', '8.16']
+      coq: ['8.18', '8.17', '8.16']
       mathcomp: ['1.18.0']
     build:
       # keyword for docker-keeper's trigger (from docker-coq CI)
