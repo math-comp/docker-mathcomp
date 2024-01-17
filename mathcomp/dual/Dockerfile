@@ -29,7 +29,3 @@ RUN set -x \
   && opam switch remove -y "${COMPILER}" \
   && opam clean -a -c -s --logs \
   && opam config list && opam list
-
-# Restore default shell to fully preserve backward compatibility
-SHELL ["/bin/sh", "-c"]
-# Still, we may remove this line later on.
