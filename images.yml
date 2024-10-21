@@ -4,7 +4,7 @@ active: true
 gitlab_ci_tags:
   - 'large'
 args:
-  COQ_TAG: '{matrix[coq]}'
+  COQ_TAG: '{matrix[coq]}-ocaml-4.14-flambda'
   MATHCOMP_VERSION: '{matrix[mathcomp]}'
 docker_repo: 'mathcomp/mathcomp'
 images:
@@ -131,6 +131,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -143,6 +145,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -154,6 +158,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -165,6 +171,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -175,6 +183,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -185,6 +195,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -195,6 +207,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -205,6 +219,8 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
   - matrix:
@@ -215,5 +231,7 @@ images:
         - '{matrix[coq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        COQ_TAG: '{matrix[coq]}'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
