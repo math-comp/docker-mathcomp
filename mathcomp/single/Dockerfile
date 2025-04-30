@@ -1,4 +1,5 @@
 ARG COQ_TAG="dev"
+# hadolint ignore=DL3006
 FROM ${COQ_TAG}
 
 ARG MATHCOMP_VERSION="dev"
