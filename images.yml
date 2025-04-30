@@ -4,39 +4,61 @@ active: true
 gitlab_ci_tags:
   - 'large'
 args:
-  COQ_TAG: '{matrix[coq]}-ocaml-4.14-flambda'
+  COQ_TAG: 'coqorg/coq:{matrix[coq]}-ocaml-4.14-flambda'
   MATHCOMP_VERSION: '{matrix[mathcomp]}'
 docker_repo: 'mathcomp/mathcomp'
 images:
   # TODO: Copy and Uncomment at next mathcomp (beta or stable) release
   # - matrix:
-  #     coq: ['dev', '8.16', '8.15', '8.14', '8.13']
+  #     rocq: ['dev', '8.16', '8.15', '8.14', '8.13']
   #     mathcomp: ['1.16+beta1']
   #   build:
-  #     # keyword for docker-keeper's trigger (from docker-coq CI)
+  #     # keyword for docker-keeper's trigger (from docker-rocq CI)
   #     keywords:
-  #       - '{matrix[coq]}'
+  #       - '{matrix[rocq]}'
   #     context: './mathcomp'
   #     dockerfile: './single/Dockerfile'
+  #     args:
+  #       # Use docker-keeper/bash_formatter.py syntax to achieve the following:
+  #       # If matrix[rocq] matches "8.*", prepend the version with "coqorg/coq:",
+  #       # otherwise, prepend the version with "rocq/rocq-prover:"
+  #       COQ_TAG: '{matrix[rocq][/#/,][//,8.*/coqorg/coq:][//,*/rocq/rocq-prover:]}{matrix[rocq]}-ocaml-4.14-flambda'
   #     tags:
-  #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
-  #       # TODO at release time: Uncomment "latest-coq-*" and Remove "[//+/-]"
-  #       # TODO after next release: Remove "latest-coq-*"
-  #       # - tag: 'latest-coq-{matrix[coq]}'
+  #       - tag: '{matrix[mathcomp][//+/-]}-rocq-prover-{matrix[rocq]}'
+  #         if: '{matrix[rocq][.*]} != 8'
+  #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[rocq]}'
+  #         if: '{matrix[rocq][.*]} == 8'
+  #       # TODO at release time: Remove "[//+/-]" and Uncomment "latest-*"
+  #       # TODO after next release: Remove "latest-*"
+  #       # - tag: 'latest-rocq-prover-{matrix[rocq]}'
+  #       #   if: '{matrix[rocq][.*]} != 8'
+  #       # - tag: 'latest-coq-{matrix[rocq]}'
+  #       #   if: '{matrix[rocq][.*]} == 8'
 
   - matrix:
-      coq: ['dev', '9.0', '8.20', '8.19']
+      rocq: ['dev', '9.0', '8.20', '8.19']
       mathcomp: ['2.4.0']
     build:
-      # keyword for docker-keeper's trigger (from docker-coq CI)
+      # keyword for docker-keeper's trigger (from docker-rocq CI)
       keywords:
-        - '{matrix[coq]}'
+        - '{matrix[rocq]}'
       context: './mathcomp'
       dockerfile: './single/Dockerfile'
+      args:
+        # Use docker-keeper/bash_formatter.py syntax to achieve the following:
+        # If matrix[rocq] matches "8.*", prepend the version with "coqorg/coq:",
+        # otherwise, prepend the version with "rocq/rocq-prover:"
+        COQ_TAG: '{matrix[rocq][/#/,][//,8.*/coqorg/coq:][//,*/rocq/rocq-prover:]}{matrix[rocq]}-ocaml-4.14-flambda'
       tags:
-        - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
-        # TODO after next release: Remove "latest-coq-*"
-        - tag: 'latest-coq-{matrix[coq]}'
+        - tag: '{matrix[mathcomp]}-rocq-prover-{matrix[rocq]}'
+          if: '{matrix[rocq][%.*]} != 8'
+        - tag: '{matrix[mathcomp]}-coq-{matrix[rocq]}'
+          if: '{matrix[rocq][%.*]} == 8'
+        # TODO after next release: Remove "latest-*"
+        - tag: 'latest-rocq-prover-{matrix[rocq]}'
+          if: '{matrix[rocq][%.*]} != 8'
+        - tag: 'latest-coq-{matrix[rocq]}'
+          if: '{matrix[rocq][%.*]} == 8'
 
   - matrix:
       coq: ['dev', '8.20', '8.19', '8.18', '8.17', '8.16']
@@ -75,7 +97,7 @@ images:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
   - matrix:
-      coq: ['dev', '8.20', '8.19', '8.18', '8.17', '8.16']
+      coq: ['8.20', '8.19', '8.18', '8.17', '8.16']
       mathcomp: ['1.19.0']
     build:
       # keyword for docker-keeper's trigger (from docker-coq CI)
