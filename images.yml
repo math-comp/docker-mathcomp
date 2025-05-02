@@ -4,7 +4,7 @@ active: true
 gitlab_ci_tags:
   - 'large'
 args:
-  COQ_TAG: 'coqorg/coq:{matrix[coq]}-ocaml-4.14-flambda'
+  COQ_TAG: '{matrix[coq]}-ocaml-4.14-flambda'
   MATHCOMP_VERSION: '{matrix[mathcomp]}'
 docker_repo: 'mathcomp/mathcomp'
 images:
@@ -15,50 +15,49 @@ images:
   #   build:
   #     # keyword for docker-keeper's trigger (from docker-rocq CI)
   #     keywords:
-  #       - '{matrix[rocq]}'
+  #       - '{matrix[coq]}'
   #     context: './mathcomp'
-  #     dockerfile: './single/Dockerfile'
+  #     # Use docker-keeper/bash_formatter.py syntax to achieve the following:
+  #     # If matrix[coq] matches "8.*", use Dockerfile.coq, otherwise Dockerfile.rocq
+  #     dockerfile: './single/Dockerfile.{matrix[coq][/#/,][//,8.*/coq][//,*/rocq]}'
   #     args:
   #       # Use docker-keeper/bash_formatter.py syntax to achieve the following:
-  #       # If matrix[rocq] matches "8.*", prepend the version with "coqorg/coq:",
+  #       # If matrix[coq] matches "8.*", prepend the version with "coqorg/coq:",
   #       # otherwise, prepend the version with "rocq/rocq-prover:"
-  #       COQ_TAG: '{matrix[rocq][/#/,][//,8.*/coqorg/coq:][//,*/rocq/rocq-prover:]}{matrix[rocq]}-ocaml-4.14-flambda'
+  #       COQ_TAG: '{matrix[coq][/#/,][//,8.*/coqorg/coq:][//,*/rocq/rocq-prover:]}{matrix[coq]}-ocaml-4.14-flambda'
   #     tags:
-  #       - tag: '{matrix[mathcomp][//+/-]}-rocq-prover-{matrix[rocq]}'
-  #         if: '{matrix[rocq][.*]} != 8'
-  #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[rocq]}'
-  #         if: '{matrix[rocq][.*]} == 8'
+  #       - tag: '{matrix[mathcomp][//+/-]}-rocq-prover-{matrix[coq]}'
+  #         if: '{matrix[coq][.*]} != 8'
+  #       - tag: '{matrix[mathcomp][//+/-]}-coq-{matrix[coq]}'
+  #         if: '{matrix[coq][.*]} == 8'
   #       # TODO at release time: Remove "[//+/-]" and Uncomment "latest-*"
   #       # TODO after next release: Remove "latest-*"
-  #       # - tag: 'latest-rocq-prover-{matrix[rocq]}'
-  #       #   if: '{matrix[rocq][.*]} != 8'
-  #       # - tag: 'latest-coq-{matrix[rocq]}'
-  #       #   if: '{matrix[rocq][.*]} == 8'
+  #       # - tag: 'latest-rocq-prover-{matrix[coq]}'
+  #       #   if: '{matrix[coq][.*]} != 8'
+  #       # - tag: 'latest-coq-{matrix[coq]}'
+  #       #   if: '{matrix[coq][.*]} == 8'
 
   - matrix:
-      rocq: ['dev', '9.0', '8.20', '8.19']
+      coq: ['dev', '9.0', '8.20', '8.19']
       mathcomp: ['2.4.0']
     build:
       # keyword for docker-keeper's trigger (from docker-rocq CI)
       keywords:
-        - '{matrix[rocq]}'
+        - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
-      args:
-        # Use docker-keeper/bash_formatter.py syntax to achieve the following:
-        # If matrix[rocq] matches "8.*", prepend the version with "coqorg/coq:",
-        # otherwise, prepend the version with "rocq/rocq-prover:"
-        COQ_TAG: '{matrix[rocq][/#/,][//,8.*/coqorg/coq:][//,*/rocq/rocq-prover:]}{matrix[rocq]}-ocaml-4.14-flambda'
+      # Use docker-keeper/bash_formatter.py syntax to achieve the following:
+      # If matrix[coq] matches "8.*", use Dockerfile.coq, otherwise Dockerfile.rocq
+      dockerfile: './single/Dockerfile.{matrix[coq][/#/,][//,8.*/coq][//,*/rocq]}'
       tags:
-        - tag: '{matrix[mathcomp]}-rocq-prover-{matrix[rocq]}'
-          if: '{matrix[rocq][%.*]} != 8'
-        - tag: '{matrix[mathcomp]}-coq-{matrix[rocq]}'
-          if: '{matrix[rocq][%.*]} == 8'
+        - tag: '{matrix[mathcomp]}-rocq-prover-{matrix[coq]}'
+          if: '{matrix[coq][%.*]} != 8'
+        - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
+          if: '{matrix[coq][%.*]} == 8'
         # TODO after next release: Remove "latest-*"
-        - tag: 'latest-rocq-prover-{matrix[rocq]}'
-          if: '{matrix[rocq][%.*]} != 8'
-        - tag: 'latest-coq-{matrix[rocq]}'
-          if: '{matrix[rocq][%.*]} == 8'
+        - tag: 'latest-rocq-prover-{matrix[coq]}'
+          if: '{matrix[coq][%.*]} != 8'
+        - tag: 'latest-coq-{matrix[coq]}'
+          if: '{matrix[coq][%.*]} == 8'
 
   - matrix:
       coq: ['dev', '8.20', '8.19', '8.18']
@@ -68,7 +67,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -80,7 +79,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -92,7 +91,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -104,7 +103,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -116,7 +115,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -128,7 +127,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -140,7 +139,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -152,7 +151,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -164,7 +163,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       tags:
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
 
@@ -176,7 +175,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -190,7 +189,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -203,7 +202,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -216,7 +215,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -228,7 +227,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -240,7 +239,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -252,7 +251,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -264,7 +263,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:
@@ -276,7 +275,7 @@ images:
       keywords:
         - '{matrix[coq]}'
       context: './mathcomp'
-      dockerfile: './single/Dockerfile'
+      dockerfile: './single/Dockerfile.coq'
       args:
         COQ_TAG: '{matrix[coq]}'
       tags:

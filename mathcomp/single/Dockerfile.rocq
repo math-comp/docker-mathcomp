@@ -1,0 +1,23 @@
+ARG COQ_TAG="dev"
+FROM rocq/rocq-prover:${COQ_TAG}
+
+ARG MATHCOMP_VERSION="dev"
+ENV MATHCOMP_VERSION=${MATHCOMP_VERSION}
+ENV MATHCOMP_PACKAGE="coq-mathcomp-character"
+
+SHELL ["/bin/bash", "--login", "-o", "pipefail", "-c"]
+
+# hadolint ignore=SC2046
+RUN set -x \
+  && eval $(opam env "--switch=${COMPILER}" --set-switch) \
+  && opam update -y -u \
+  && opam pin add -n -k version coq-mathcomp-ssreflect ${MATHCOMP_VERSION} \
+  && opam pin add -n -k version coq-mathcomp-fingroup ${MATHCOMP_VERSION} \
+  && opam pin add -n -k version coq-mathcomp-algebra ${MATHCOMP_VERSION} \
+  && opam pin add -n -k version coq-mathcomp-solvable ${MATHCOMP_VERSION} \
+  && opam pin add -n -k version coq-mathcomp-field ${MATHCOMP_VERSION} \
+  && opam pin add -n -k version coq-mathcomp-character ${MATHCOMP_VERSION} \
+  && opam install -y -j "${NJOBS}" ${MATHCOMP_PACKAGE} \
+  && opam clean -a -c -s --logs \
+  && chmod -R g=u /home/rocq/.opam \
+  && opam config list && opam list
