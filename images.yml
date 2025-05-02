@@ -1,5 +1,5 @@
 ---
-base_url: 'https://gitlab.com/math-comp/docker-mathcomp'
+base_url: 'https://gitlab.inria.fr/math-comp/docker-mathcomp'
 active: true
 gitlab_ci_tags:
   - 'large'
