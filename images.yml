@@ -38,7 +38,7 @@ images:
   #       #   if: '{matrix[coq][.*]} == 8'
 
   - matrix:
-      coq: ['dev', '9.1', '9.0', '8.20']
+      coq: ['9.1', '9.0', '8.20']
       mathcomp: ['2.5.0']
     build:
       # keyword for docker-keeper's trigger (from docker-rocq CI)
@@ -60,7 +60,7 @@ images:
           if: '{matrix[coq][%.*]} == 8'
 
   - matrix:
-      coq: ['dev', '9.1', '9.0', '8.20', '8.19']
+      coq: ['9.1', '9.0', '8.20', '8.19']
       mathcomp: ['2.4.0']
     build:
       # keyword for docker-keeper's trigger (from docker-rocq CI)
