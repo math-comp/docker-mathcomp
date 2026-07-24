@@ -38,6 +38,22 @@ images:
   #       #   if: '{matrix[coq][.*]} == 8'
 
   - matrix:
+      coq: ['9.2', '9.1', '9.0']
+      mathcomp: ['2.6.0']
+    build:
+      # keyword for docker-keeper's trigger (from docker-rocq CI)
+      keywords:
+        - '{matrix[coq]}'
+      context: './mathcomp'
+      # Use docker-keeper/bash_formatter.py syntax to achieve the following:
+      # If matrix[coq] matches "8.*", use Dockerfile.coq, otherwise Dockerfile.rocq
+      dockerfile: './single/Dockerfile.{matrix[coq][/#/,][//,8.*/coq][//,*/rocq]}'
+      tags:
+        - tag: '{matrix[mathcomp]}-rocq-prover-{matrix[coq]}'
+        # TODO after next release: Remove "latest-*"
+        - tag: 'latest-rocq-prover-{matrix[coq]}'
+
+  - matrix:
       coq: ['9.1', '9.0', '8.20']
       mathcomp: ['2.5.0']
     build:
@@ -52,11 +68,6 @@ images:
         - tag: '{matrix[mathcomp]}-rocq-prover-{matrix[coq]}'
           if: '{matrix[coq][%.*]} != 8'
         - tag: '{matrix[mathcomp]}-coq-{matrix[coq]}'
-          if: '{matrix[coq][%.*]} == 8'
-        # TODO after next release: Remove "latest-*"
-        - tag: 'latest-rocq-prover-{matrix[coq]}'
-          if: '{matrix[coq][%.*]} != 8'
-        - tag: 'latest-coq-{matrix[coq]}'
           if: '{matrix[coq][%.*]} == 8'
 
   - matrix:
